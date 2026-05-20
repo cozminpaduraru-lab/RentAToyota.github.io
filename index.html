@@ -522,12 +522,244 @@
         }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
+        /* ── Two-path (PFA / Fleet) ── */
+        .paths-section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .paths-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .paths-title em { color: var(--accent); font-style: italic; }
+
+        .paths-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 3rem;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .paths-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .path-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .path-box:hover {
+            border-color: rgba(102,227,160,0.2);
+        }
+
+        .path-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+
+        .path-box.pfa::before {
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .path-box.fleet::before {
+            background: linear-gradient(90deg, transparent, var(--price-gold), transparent);
+        }
+
+        .path-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .pfa .path-badge {
+            background: rgba(102,227,160,0.1);
+            color: var(--accent);
+            border: 1px solid rgba(102,227,160,0.2);
+        }
+
+        .fleet .path-badge {
+            background: rgba(240,201,75,0.1);
+            color: var(--price-gold);
+            border: 1px solid rgba(240,201,75,0.2);
+        }
+
+        .path-box h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .path-box .path-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .path-benefits {
+            margin-bottom: 2rem;
+        }
+
+        .path-benefits-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .path-benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+
+        .path-benefit .check {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            margin-top: 2px;
+        }
+
+        .pfa .path-benefit .check {
+            background: rgba(102,227,160,0.15);
+            color: var(--accent);
+        }
+
+        .fleet .path-benefit .check {
+            background: rgba(240,201,75,0.15);
+            color: var(--price-gold);
+        }
+
+        .path-benefit span {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .path-steps-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .path-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .path-step-num {
+            width: 32px; height: 32px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+        }
+
+        .pfa .path-step-num {
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .fleet .path-step-num {
+            border: 1.5px solid var(--price-gold);
+            color: var(--price-gold);
+        }
+
+        .path-step-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .path-step-content p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        @media (max-width: 768px) {
+            .paths-grid { grid-template-columns: 1fr; }
+        }
+
+        .pfa-cta-box {
+            margin-top: 2rem;
+            padding: 1.25rem 1.5rem;
+            background: rgba(102,227,160,0.04);
+            border: 1px dashed rgba(102,227,160,0.2);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .pfa-cta-box p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-pfa-cta {
+            display: inline-block;
+            padding: 10px 22px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            border: 1px solid rgba(102,227,160,0.3);
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-pfa-cta:hover {
+            background: rgba(102,227,160,0.1);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
         @media (max-width: 600px) {
             .price-card { padding: 2.5rem 1.5rem; }
             .feature-card { padding: 1.5rem; }
             .step { gap: 1rem; }
             .detail-block { padding: 1.5rem; }
             .accident-examples { grid-template-columns: 1fr; }
+            .path-box { padding: 2rem 1.5rem; }
         }
     </style>
 </head>
@@ -663,36 +895,117 @@
         </div>
     </section>
 
-    <!-- ══════ STEPS ══════ -->
-    <section class="steps" id="cum-functioneaza">
-        <h2 class="steps-title reveal">Cum funcționează?</h2>
-        <div class="step reveal">
-            <div class="step-num">1</div>
-            <div class="step-content">
-                <h3>Contactează-ne</h3>
-                <p>Sună sau scrie-ne pe WhatsApp. Îți răspundem rapid și lămurim toate detaliile ofertei.</p>
+    <!-- ══════ CUM FUNCȚIONEAZĂ — PFA vs FLOTĂ ══════ -->
+    <section class="paths-section" id="cum-functioneaza">
+        <h2 class="paths-title reveal">Cum <em>funcționează?</em></h2>
+        <p class="paths-subtitle reveal">Alege varianta care ți se potrivește. Procesul e simplu în ambele cazuri.</p>
+
+        <div class="paths-grid">
+
+            <!-- ── PFA ── -->
+            <div class="path-box pfa reveal">
+                <div class="path-badge">👤 Șofer PFA</div>
+                <h3>Activezi pe cont propriu</h3>
+                <p class="path-desc">Ai PFA-ul tău și vrei să închiriezi direct? Contactezi Autonom, semnezi contractul și pornești la drum.</p>
+
+                <div class="path-benefits">
+                    <div class="path-benefits-title">Avantaje PFA</div>
+                    <div class="path-benefit">
+                        <div class="check">✓</div>
+                        <span>Deduci chiria mașinii din cheltuielile PFA</span>
+                    </div>
+                    <div class="path-benefit">
+                        <div class="check">✓</div>
+                        <span>Control total asupra programului tău</span>
+                    </div>
+                    <div class="path-benefit">
+                        <div class="check">✓</div>
+                        <span><!-- Beneficiu PFA de completat --></span>
+                    </div>
+                </div>
+
+                <div class="path-steps-title">Pași de urmat</div>
+                <div class="path-step">
+                    <div class="path-step-num">1</div>
+                    <div class="path-step-content">
+                        <h4>Contactează Autonom</h4>
+                        <p>Sună sau scrie pe WhatsApp pentru a discuta detaliile ofertei.</p>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="path-step-num">2</div>
+                    <div class="path-step-content">
+                        <h4>Pregătește documentele</h4>
+                        <p>Buletin / CI, permis categoria B valid, cont activ de șofer Bolt și PFA activ.</p>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="path-step-num">3</div>
+                    <div class="path-step-content">
+                        <h4>Semnezi contractul și plătești depozitul</h4>
+                        <p>Contract simplu, transparent. Depozitul de 1.000 RON se achită la preluare.</p>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="path-step-num">4</div>
+                    <div class="path-step-content">
+                        <h4>Obții ARR-ul și începi cursele</h4>
+                        <p>Mașina vine verificată și pregătită. Obții ARR-ul și pornești cu acces la curse Comfort.</p>
+                    </div>
+                </div>
+
+                <div class="pfa-cta-box">
+                    <p>Nu ai PFA încă? Te putem ajuta să îți înființezi unul rapid.</p>
+                    <a href="https://pickride.eu/" target="_blank" class="btn-pfa-cta">Înființează PFA prin PickRide →</a>
+                </div>
             </div>
-        </div>
-        <div class="step reveal">
-            <div class="step-num">2</div>
-            <div class="step-content">
-                <h3>Pregătește documentele</h3>
-                <p>Ai nevoie de buletin sau carte de identitate, permis de conducere categoria B valid și cont activ de șofer Bolt.</p>
+
+            <!-- ── FLOTĂ ── -->
+            <div class="path-box fleet reveal">
+                <div class="path-badge">🚐 Șofer în flotă</div>
+                <h3>Activezi prin flotă</h3>
+                <p class="path-desc">Faci parte dintr-o flotă? Vorbește cu administratorul flotei și el va aranja totul cu Autonom.</p>
+
+                <div class="path-benefits">
+                    <div class="path-benefits-title">Avantaje flotă</div>
+                    <div class="path-benefit">
+                        <div class="check">✓</div>
+                        <span>Poți face schimburi pe vehicul cu alți șoferi din flotă</span>
+                    </div>
+                    <div class="path-benefit">
+                        <div class="check">✓</div>
+                        <span>Administratorul se ocupă de birocrație</span>
+                    </div>
+                    <div class="path-benefit">
+                        <div class="check">✓</div>
+                        <span><!-- Beneficiu flotă de completat --></span>
+                    </div>
+                </div>
+
+                <div class="path-steps-title">Pași de urmat</div>
+                <div class="path-step">
+                    <div class="path-step-num">1</div>
+                    <div class="path-step-content">
+                        <h4>Discută cu administratorul flotei</h4>
+                        <p>Spune-i că ești interesat de oferta Toyota Corolla Hybrid + GPL prin Autonom.</p>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="path-step-num">2</div>
+                    <div class="path-step-content">
+                        <h4>Administratorul contactează Autonom</h4>
+                        <p>Se ocupă de contract, documente și preluarea mașinii în numele flotei.</p>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="path-step-num">3</div>
+                    <div class="path-step-content">
+                        <h4>Primești mașina și începi cursele</h4>
+                        <p>Mașina e gata. Obții ARR-ul și pornești la drum cu acces la curse Comfort.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="step reveal">
-            <div class="step-num">3</div>
-            <div class="step-content">
-                <h3>Semnezi contractul și plătești depozitul</h3>
-                <p>Contract simplu, transparent. Depozitul de 1.000 RON se achită la preluarea mașinii.</p>
-            </div>
-        </div>
-        <div class="step reveal">
-            <div class="step-num">4</div>
-            <div class="step-content">
-                <h3>Primești mașina și începi cursele</h3>
-                <p>Mașina vine verificată, curată și pregătită. Obții ARR-ul și pornești la drum cu acces la curse Comfort.</p>
-            </div>
+
         </div>
     </section>
 
